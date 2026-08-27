@@ -41,11 +41,53 @@ class Password:
 
        }
        return universe_of_chars
-
-
     
 
 
+def main():
+
+    print("=== Default Password ===")
+    default = Password()
+    print(f"Strength: {default.strength}")
+    print(f"Length: {len(default.password)}")
+    print(f"Password: {default.password}")
+    print()
+
+    print("=== Low Strength Password ===")
+    low = Password("low")
+    print(f"Strength: {low.strength}")
+    print(f"Length: {len(low.password)}")
+    print(f"Password: {low.password}")
+    print()
+
+    print("=== Mid Strength Password ===")
+    mid = Password("mid")
+    print(f"Strength: {mid.strength}")
+    print(f"Length: {len(mid.password)}")
+    print(f"Password: {mid.password}")
+    print()
+
+    print("=== High Strength Password ===")
+    high = Password("high")
+    print(f"Strength: {high.strength}")
+    print(f"Length: {len(high.password)}")
+    print(f"Password: {high.password}")
+    print()
+
+    print("=== Custom Length Password ===")
+    custom = Password("mid", 20)
+    print(f"Strength: {custom.strength}")
+    print(f"Length: {len(custom.password)}")
+    print(f"Password: {custom.password}")
+    print()
+
+    print("=== Input Universe ===")
+    universe = Password.show_input_universe()
+    print(universe)
+
+
+if __name__ == "__main__":
+    main()
 
             
 
