@@ -24,13 +24,19 @@
 
 
 
-Planning - 
+# Planning - 
 
-eq:
+# Control Flow Pattern:
 
-First need to know if user provided phone or email to then check for equality 
+#  when there are multiple independent ways to succeed, don’t return failure 
+# until you’ve exhausted all the possible ways to succeed
 
-while name and last name are always given so i don't need a check 
+# eq:
+
+# Control Flow: Failed Inequality Rule doesn't mean the objects aren't equal to each 
+# other. It just means the particular rule didn't prove that their equal, so keep checking.
+# Only once we reach to last rule of equality we can accept w.e output is 
+
 
 
 
@@ -46,10 +52,16 @@ class Contact:
         self.Display_Mode = Display_Mode
 
     def __eq__(self, other):
-        if self.Phone_Number is not None and other.Phone_Number is not None:
-            return self.Phone_Number == other.Phone_Number
-        elif self.Email is not None and other.Email is not None:
-            return self.Email == other.Email
+        if ( 
+            self.Phone_Number is not None 
+            and other.Phone_Number is not None 
+            and self.Phone_Number == other.Phone_Number):
+            return True
+        elif (
+            self.Email is not None 
+            and other.Email is not None 
+            and self.Email == other.Email) :
+            return True
         else:
             return self.First_Name == other.First_Name and self.Last_Name == other.Last_Name
 
