@@ -24,6 +24,13 @@
 
 
 
+Planning - 
+
+eq:
+
+First need to know if user provided phone or email to then check for equality 
+
+while name and last name are always given so i don't need a check 
 
 
 
@@ -39,6 +46,12 @@ class Contact:
         self.Display_Mode = Display_Mode
 
     def __eq__(self, other):
+        if self.Phone_Number is not None and other.Phone_Number is not None:
+            return self.Phone_Number == other.Phone_Number
+        elif self.Email is not None and other.Email is not None:
+            return self.Email == other.Email
+        else:
+            return self.First_Name == other.First_Name and self.Last_Name == other.Last_Name
 
 
 
