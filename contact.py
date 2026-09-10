@@ -52,6 +52,7 @@ class Contact:
         self.Display_Mode = Display_Mode
 
     def __eq__(self, other):
+        #refactor this shii later 
         if ( 
             self.Phone_Number is not None 
             and other.Phone_Number is not None 
@@ -64,6 +65,15 @@ class Contact:
             return True
         else:
             return self.First_Name == other.First_Name and self.Last_Name == other.Last_Name
+
+
+    def __str__(self):
+        return f"{self.Last_Name[0]}{self.First_Name[0]}"
+
+    def __repr__(self):
+        pass
+
+    
 
 
 
