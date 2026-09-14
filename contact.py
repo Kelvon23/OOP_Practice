@@ -77,9 +77,12 @@ class Contact:
 
             return f"Contact(name={fname}, last_name={lname})"
         else:
-            return f"Contact(name={self.First_Name}, last_name = {self.Last_Name}, phone = {self.Phone_Number}, email = {self.Email}"
+            return f"Contact(name={self.First_Name}, last_name = {self.Last_Name}, phone = {self.Phone_Number}, email = {self.Email})"
 
-        
+
+    def __format__(self, format_spec):
+        if format_spec == "unmasked":
+             return f"Contact(name={self.First_Name}, last_name = {self.Last_Name}, phone = {self.Phone_Number}, email = {self.Email})"
 
     
 
