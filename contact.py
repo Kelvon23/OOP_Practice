@@ -71,7 +71,15 @@ class Contact:
         return f"{self.Last_Name[0]}{self.First_Name[0]}"
 
     def __repr__(self):
-        pass
+        if self.Display_Mode == "masked":
+            fname = self.First_Name[0:2] + "*" * len(self.First_Name[2:])
+            lname = self.Last_Name[0:2] + "*" * len(self.Last_Name[2:])
+
+            return f"Contact(name={fname}, last_name={lname})"
+        else:
+            return f"Contact(name={self.First_Name}, last_name = {self.Last_Name}, phone = {self.Phone_Number}, email = {self.Email}"
+
+        
 
     
 
