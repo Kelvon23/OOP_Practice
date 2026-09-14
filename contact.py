@@ -87,7 +87,31 @@ class Contact:
             return self.__repr__()
 
     
+def main():
+    c1 = Contact("Andy", "Bek")
+    c2 = Contact("John", "Smith", "123")
+    c3 = Contact("Jane", "Doe", "123")
 
+    print("Testing __str__:")
+    print(str(c1))
+
+    print("\nTesting masked __repr__:")
+    print(repr(c1))
+
+    print("\nTesting unmasked __repr__:")
+    c1.Display_Mode = "unmasked"
+    print(repr(c1))
+
+    print("\nTesting __format__ with unmasked:")
+    c1.Display_Mode = "masked"
+    print(format(c1, "unmasked"))
+
+    print("\nTesting __eq__:")
+    print(c2 == c3)
+
+
+if __name__ == "__main__":
+    main()
 
 
         
