@@ -72,10 +72,8 @@ class Contact:
 
     def __repr__(self):
         if self.Display_Mode == "masked":
-            fname = self.First_Name[0:2] + "*" * len(self.First_Name[2:])
-            lname = self.Last_Name[0:2] + "*" * len(self.Last_Name[2:])
 
-            return f"Contact(name={fname}, last_name={lname})"
+            return f"Contact(name={self._obfuscate(self.First_Name)}, last_name={self._obfuscate(self.Last_Name)})"
         else:
             return f"Contact(name={self.First_Name}, last_name = {self.Last_Name}, phone = {self.Phone_Number}, email = {self.Email})"
 
@@ -85,6 +83,11 @@ class Contact:
              return f"Contact(name={self.First_Name}, last_name = {self.Last_Name}, phone = {self.Phone_Number}, email = {self.Email})"
         else:
             return self.__repr__()
+
+    @staticmethod
+    def _obfuscate(text):
+        return text[0:2] + "*" * len(text[2:])
+
 
     
 def main():
