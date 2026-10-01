@@ -31,10 +31,6 @@ return the value in that postion
 """
 
 
-
-
-
-
 class Vector:
     def __init__(x,y,z):
         self.x = x
@@ -42,16 +38,25 @@ class Vector:
         self.z = z 
 
     def __add__(self, other):
-        pass
+        new_x = self.x + other.x
+        new_y = self.y + other.y
+        new_z = self.z + other.z
+
+        return Vector(new_x,new_y,new_z)
 
     def __mul__(self, other):
-        pass
+        new_x = self.x * other
+        new_y = self.x * other
+        new_z = self.x * other
+
+        return Vector (new_x,new_y,new_z)
+        
 
     def __getitem__(self, key):
         pass
 
     def __repr__(self):
-        pass
+        return F"Vector({self.x},{self.y},{self.z})"
 
     def __bool__(self):
         pass
