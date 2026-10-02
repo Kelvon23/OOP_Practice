@@ -30,6 +30,7 @@ return the value in that postion
 
 """
 
+from math import sqrt 
 
 class Vector:
     def __init__(x,y,z):
@@ -50,6 +51,13 @@ class Vector:
         new_z = self.x * other
 
         return Vector (new_x,new_y,new_z)
+
+    def __abs__(self):
+
+        magnitude = sqrt(self.x**2 + self.y ** 2 + self.z ** 2)
+
+        return magnitude
+
         
 
     def __getitem__(self, key):
