@@ -29,9 +29,10 @@ return the value in that postion
 
 
 """
-
+from functools import total_ordering
 from math import sqrt 
 
+@total_ordering
 class Vector:
     def __init__(x,y,z):
         self.x = x
@@ -58,11 +59,21 @@ class Vector:
 
         return magnitude
 
+    def __rmul__(self, other):
+        return self.__mul__(other)
+
+    def __eq__(self, other):
+        return abs(self) == abs(other)
+
+    def __lt__(self, other):
+        return abs(self) < abs(other)
         
 
     def __getitem__(self, key):
         pass
 
+    def __hash__(self):
+        pass
     def __repr__(self):
         return F"Vector({self.x},{self.y},{self.z})"
 
