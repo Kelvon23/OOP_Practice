@@ -70,12 +70,22 @@ class Vector:
         
 
     def __getitem__(self, key):
-        pass
+        key = key.lower
+
+        if key == "x":
+            return self.x
+        elif key == "y":
+            return self.y
+        elif key == "z":
+            return self.z
+        else:
+            raise KeyError(key)
 
     def __hash__(self):
-        pass
+        return hash(abs(self))
     def __repr__(self):
         return F"Vector({self.x},{self.y},{self.z})"
 
     def __bool__(self):
-        pass
+        return abs(self)!=0
+    
