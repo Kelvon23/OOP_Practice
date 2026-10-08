@@ -34,7 +34,7 @@ from math import sqrt
 
 @total_ordering
 class Vector:
-    def __init__(x,y,z):
+    def __init__(self,x,y,z):
         self.x = x
         self.y = y
         self.z = z 
@@ -48,8 +48,8 @@ class Vector:
 
     def __mul__(self, other):
         new_x = self.x * other
-        new_y = self.x * other
-        new_z = self.x * other
+        new_y = self.y * other
+        new_z = self.z * other
 
         return Vector (new_x,new_y,new_z)
 
@@ -70,7 +70,7 @@ class Vector:
         
 
     def __getitem__(self, key):
-        key = key.lower
+        key = key.lower()
 
         if key == "x":
             return self.x
