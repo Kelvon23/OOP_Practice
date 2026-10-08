@@ -89,3 +89,41 @@ class Vector:
     def __bool__(self):
         return abs(self)!=0
     
+
+def main ():
+
+    v1 = Vector(3,4,0)
+    v2 = Vector(6,8,0)
+
+
+    #Vector(3,4,0)
+    print(repr(v1))
+
+    #magnitiude : 5
+    print(abs(v1))
+
+    #False
+    print(bool(Vector(0, 0, 0)))
+
+    #<9,12,0>
+    print(v1 + v2)
+
+    #<6,8,0>
+    print(v1 * 2)
+
+    #<6,8,0>
+    print(2*v1)
+
+    #True
+    print(v1 < v2)
+
+    #3
+    print(v1["X"])
+
+    #print own thing
+    print(hash(v1))
+
+
+
+if __name__ == "__main__":
+    main()
