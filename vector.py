@@ -40,6 +40,9 @@ class Vector:
         self.z = z 
 
     def __add__(self, other):
+        if not isinstance(other,Vector):
+            raise TypeError("Operation only supported between instances of Vector")
+
         new_x = self.x + other.x
         new_y = self.y + other.y
         new_z = self.z + other.z
@@ -47,6 +50,9 @@ class Vector:
         return Vector(new_x,new_y,new_z)
 
     def __mul__(self, other):
+        if not isinstance(other,(int,float)):
+            raise TypeError("Operation only supported a numerica Scalar")
+
         new_x = self.x * other
         new_y = self.y * other
         new_z = self.z * other
@@ -63,9 +69,17 @@ class Vector:
         return self.__mul__(other)
 
     def __eq__(self, other):
-        return abs(self) == abs(other)
+
+        if not isinstance(other,Vector):
+            return False
+
+        
+        return self.x == other.x and self.y == other.y == self.z == other.z 
 
     def __lt__(self, other):
+        if not isinstance(other,Vector):
+            raise TypeError("Must be a Vector")
+
         return abs(self) < abs(other)
         
 
@@ -82,7 +96,8 @@ class Vector:
             raise KeyError(key)
 
     def __hash__(self):
-        return hash(abs(self))
+        return hash((self.x, self.y, self.z))
+    
     def __repr__(self):
         return F"Vector({self.x},{self.y},{self.z})"
 
