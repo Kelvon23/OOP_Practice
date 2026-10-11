@@ -38,22 +38,22 @@ class DNABase:
     }
 
     def __init__(self,nucleotide):
-        self._base = nucleotide
+        self.base = nucleotide
 
     def __repr__(self):
-        return f"DNABase(nucleotide= '{self._base}')"
+        return f"DNABase(nucleotide='{self.base}')"
 
     @property
     def base(self):
         return self._base
 
 
-    @property
-    def setter_nucleotide(self,nucleotide):
+    @base.setter
+    def base(self,nucleotide):
         base = nucleotide.lower()
 
         if base in self.valid_bases:
-            self._base = self.valid_bases[nucleotide]
+            self._base = self.valid_bases[base]
         elif base in self.valid_bases.values():
             self._base = base
         else:
@@ -63,8 +63,31 @@ class DNABase:
 
 
 def main():
-    pass
 
+    b1 = DNABase("A")
+
+    b2 = DNABase("CYTOSINE")
+
+    b3 = DNABase("g")
+
+    b4 = DNABase("ThYmInE")
+
+    b5 = DNABase("Aoli")
+
+    #adenine
+    print(b1.base)
+
+    #cytosine
+    print(b2.base)
+
+    #guanine
+    print(b3.base)
+
+    #thymine
+    print(b4.base)
+
+    #Aoli is not a recognized DNA nucleotide
+    print(b5.base)
 
 
 
