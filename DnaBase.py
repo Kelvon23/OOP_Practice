@@ -30,13 +30,35 @@ attribute setters
 """
 class DNABase:
 
-    valid_bases = ["adenine","cytosine","guanine","thymine"]
+    valid_bases={
+        "a":"adenine",
+        "c":"cytosine",
+        "g":"guanine",
+        "t":"thymine"
+    }
 
     def __init__(self,nucleotide):
-        self.base = nucleotide
+        self._base = nucleotide
 
     def __repr__(self):
-        return f"DNABase(nucleotide= '{self.base}')"
+        return f"DNABase(nucleotide= '{self._base}')"
+
+    @property
+    def base(self):
+        return self._base
+
+
+    @property
+    def setter_nucleotide(self,nucleotide):
+        base = nucleotide.lower()
+
+        if base in self.valid_bases:
+            self._base = self.valid_bases[nucleotide]
+        elif base in self.valid_bases.values():
+            self._base = base
+        else:
+            raise ValueError(f"{nucleotide} is not a recognized DNA nucleotide")
+
 
 
 
@@ -46,6 +68,7 @@ def main():
 
 
 
-
+if __name__ == "__main__":
+    main()
 
 
